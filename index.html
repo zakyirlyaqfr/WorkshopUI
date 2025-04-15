@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche - Unleash Your Drive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/porsche-logo.png" alt="Porsche Logo">
+            </div>
+            <nav class="desktop-nav">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#models" class="nav-link">Models</a>
+                <a href="#showcase" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="nav-link btn-login">Login</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#models" class="nav-link">Models</a>
+        <a href="#showcase" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#" class="nav-link btn-login">Login</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="animate-on-scroll">Experience the Ultimate <span>Porsche</span></h1>
+            <p class="animate-on-scroll">Precision engineering meets timeless design</p>
+            <button class="cta-btn animate-on-scroll">Discover Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="overlay"></div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote">
+        <div class="container">
+            <blockquote class="animate-on-scroll">
+                "Feel the thrill of precision engineering and timeless design. Every Porsche tells a story of passion."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-content">
+                <h2 class="section-title animate-on-scroll">Unmatched Performance</h2>
+                <p class="animate-on-scroll">Every Porsche is crafted with precision, delivering unparalleled speed, control, and luxury for an unforgettable driving experience.</p>
+                <div class="feature-stats animate-on-scroll">
+                    <div class="stat">
+                        <span class="counter" data-target="3.2">0</span>
+                        <span class="unit">sec</span>
+                        <p>0-100 km/h</p>
+                    </div>
+                    <div class="stat">
+                        <span class="counter" data-target="330">0</span>
+                        <span class="unit">km/h</span>
+                        <p>Top Speed</p>
+                    </div>
+                    <div class="stat">
+                        <span class="counter" data-target="650">0</span>
+                        <span class="unit">hp</span>
+                        <p>Engine Power</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image animate-on-scroll">
+                <img src="images/porsche-feature.jpg" alt="Porsche Performance">
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models" id="models">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Explore Our Models</h2>
+            <div class="model-slider">
+                <div class="slider-container">
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <h3>911 Turbo S</h3>
+                            <p>The iconic sports car with unmatched performance.</p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/porsche-911.jpg" alt="Porsche 911 Turbo S">
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>Taycan</h3>
+                            <p>The future of electric performance is here.</p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/porsche-taycan.jpg" alt="Porsche Taycan">
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>Cayenne</h3>
+                            <p>Luxury SUV with sports car DNA.</p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/porsche-cayenne.jpg" alt="Porsche Cayenne">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-slide">&lt;</button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="next-slide">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <!-- <section class="cards">
+        <div class="container">
+            <div class="card animate-on-scroll">
+                <div class="card-image">
+                    <img src="images/icon-speed.png" alt="Speed Icon">
+                </div>
+                <h3>Turbo Speed</h3>
+                <p>Experience breathtaking acceleration that pushes you back in your seat.</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-image">
+                    <img src="images/icon-design.png" alt="Design Icon">
+                </div>
+                <h3>Luxury Design</h3>
+                <p>Meticulously crafted interiors with premium materials and attention to detail.</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-image">
+                    <img src="images/icon-tech.png" alt="Tech Icon">
+                </div>
+                <h3>Advanced Tech</h3>
+                <p>Cutting-edge technology that enhances both performance and comfort.</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-image">
+                    <img src="images/icon-custom.png" alt="Customization Icon">
+                </div>
+                <h3>Custom Options</h3>
+                <p>Personalize your Porsche with a wide range of customization options.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="showcase-image animate-on-scroll">
+                <img src="images/porsche-showcase.jpg" alt="Porsche Showcase">
+            </div>
+            <div class="showcase-text">
+                <h2 class="section-title animate-on-scroll">Why Choose Porsche?</h2>
+                <p class="animate-on-scroll">From iconic design to cutting-edge technology, Porsche offers a driving experience like no other. Our legacy of performance spans decades, with each vehicle embodying our commitment to excellence.</p>
+                <ul class="showcase-features animate-on-scroll">
+                    <li>German engineering excellence</li>
+                    <li>Unmatched driving dynamics</li>
+                    <li>Iconic design heritage</li>
+                    <li>Exclusive ownership experience</li>
+                </ul>
+                <button class="learn-more animate-on-scroll">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Book a Test Drive Today!</h2>
+            <p class="animate-on-scroll">Experience the thrill of driving a Porsche firsthand.</p>
+            <form id="contact-form" class="animate-on-scroll">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="model" required>
+                        <option value="" disabled selected>Select Model</option>
+                        <option value="911">911</option>
+                        <option value="taycan">Taycan</option>
+                        <option value="cayenne">Cayenne</option>
+                        <option value="panamera">Panamera</option>
+                        <option value="etc">etc</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder="Additional Information"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Schedule Test Drive</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/porsche-logo.png" alt="Porsche Logo">
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Models</h4>
+                        <a href="#">911</a>
+                        <a href="#">Taycan</a>
+                        <a href="#">Cayenne</a>
+                        <a href="#">Panamera</a>
+                        <a href="#">etc</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="#">Financing</a>
+                        <a href="#">Maintenance</a>
+                        <a href="#">Warranty</a>
+                        <a href="#">Accessories</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>About</h4>
+                        <a href="#">Company</a>
+                        <a href="#">Heritage</a>
+                        <a href="#">Motorsport</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <img src="images/icon-facebook.png" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="images/icon-instagram.png" alt="Instagram">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="images/icon-twitter.png" alt="Twitter">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="images/icon-youtube.png" alt="YouTube">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Porsche. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
