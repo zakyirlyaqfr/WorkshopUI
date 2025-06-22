@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Transaksi - DriveZone Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="flex h-screen">
+        <div class="w-64 bg-gray-900 text-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-red-500">DriveZone Admin</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="admin-dashboard.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="admin-artikel.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-newspaper mr-3"></i>
+                    Kelola Artikel
+                </a>
+                <a href="admin-produk.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-car mr-3"></i>
+                    Kelola Produk
+                </a>
+                <a href="admin-pengguna.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-users mr-3"></i>
+                    Kelola Pengguna
+                </a>
+                <a href="admin-transaksi.html" class="flex items-center px-6 py-3 bg-red-600 text-white">
+                    <i class="fas fa-credit-card mr-3"></i>
+                    Kelola Transaksi
+                </a>
+                <a href="index.html" class="flex items-center px-6 py-3 hover:bg-gray-800 mt-6 border-t border-gray-700">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Kembali ke Website
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <h1 class="text-2xl font-semibold text-gray-900">Kelola Transaksi</h1>
+                    <div class="flex space-x-2">
+                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-chart-bar mr-2"></i>Laporan
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Selesai</h3>
+                                <p class="text-3xl font-bold text-green-600">1,089</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-clock text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Pending</h3>
+                                <p class="text-3xl font-bold text-yellow-600">145</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="fas fa-dollar-sign text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Total Penjualan</h3>
+                                <p class="text-3xl font-bold text-blue-600">Rp 45.2M</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-red-100 text-red-600">
+                                <i class="fas fa-times-circle text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Dibatalkan</h3>
+                                <p class="text-3xl font-bold text-red-600">23</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <input type="text" placeholder="Cari transaksi..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <select class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option>Semua Status</option>
+                            <option>Pending</option>
+                            <option>Confirmed</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                        <input type="date" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="date" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Transaksi</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pelanggan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Produk</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TRX001</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                        <div class="ml-3">
+                                            <div class="text-sm font-medium text-gray-900">John Doe</div>
+                                            <div class="text-sm text-gray-500">john.doe@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Ferrari 488 GTB</div>
+                                    <div class="text-sm text-gray-500">2022 • 5,000 km</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">Rp 8.5M</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12 Mei 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button onclick="openModal('detailModal')" class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900 mr-3">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TRX002</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-full" src="https://i.pinimg.com/736x/4b/81/af/4b81aff47bdd1c758ac52c1422a732e3.jpg" alt="">
+                                        <div class="ml-3">
+                                            <div class="text-sm font-medium text-gray-900">Jane Smith</div>
+                                            <div class="text-sm text-gray-500">jane.smith@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Lamborghini Huracán</div>
+                                    <div class="text-sm text-gray-500">2021 • 8,500 km</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">Rp 12.3M</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10 Mei 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button onclick="openModal('detailModal')" class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900 mr-3">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TRX003</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                        <div class="ml-3">
+                                            <div class="text-sm font-medium text-gray-900">Mike Johnson</div>
+                                            <div class="text-sm text-gray-500">mike.johnson@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Porsche 911 Turbo</div>
+                                    <div class="text-sm text-gray-500">2023 • 2,100 km</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">Rp 6.8M</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Confirmed</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">8 Mei 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button onclick="openModal('detailModal')" class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900 mr-3">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center justify-between mt-6">
+                    <div class="text-sm text-gray-700">
+                        Menampilkan 1-10 dari 1,234 transaksi
+                    </div>
+                    <div class="flex space-x-1">
+                        <button class="px-3 py-2 border rounded-md hover:bg-gray-100">Previous</button>
+                        <button class="px-3 py-2 border rounded-md bg-red-600 text-white">1</button>
+                        <button class="px-3 py-2 border rounded-md hover:bg-gray-100">2</button>
+                        <button class="px-3 py-2 border rounded-md hover:bg-gray-100">3</button>
+                        <button class="px-3 py-2 border rounded-md hover:bg-gray-100">Next</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Transaction Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Detail Transaksi #TRX001</h3>
+                        <button onclick="closeModal('detailModal')" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Customer Info -->
+                        <div>
+                            <h4 class="text-md font-semibold text-gray-900 mb-3">Informasi Pelanggan</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Nama</p>
+                                        <p class="font-medium">John Doe</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Email</p>
+                                        <p class="font-medium">john.doe@email.com</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Telepon</p>
+                                        <p class="font-medium">+62 812-3456-7890</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Alamat</p>
+                                        <p class="font-medium">Jakarta Selatan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Info -->
+                        <div>
+                            <h4 class="text-md font-semibold text-gray-900 mb-3">Informasi Produk</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ferrari 488 GTB" class="w-16 h-16 rounded-lg object-cover">
+                                    <div class="flex-1">
+                                        <h5 class="font-semibold">Ferrari 488 GTB</h5>
+                                        <p class="text-sm text-gray-600">2022 • 5,000 km • Manual</p>
+                                        <p class="text-lg font-bold text-red-600">Rp 8.500.000.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Info -->
+                        <div>
+                            <h4 class="text-md font-semibold text-gray-900 mb-3">Informasi Pembayaran</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Metode Pembayaran</p>
+                                        <p class="font-medium">Transfer Bank</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Status Pembayaran</p>
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Lunas</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Tanggal Pembayaran</p>
+                                        <p class="font-medium">12 Mei 2023, 14:30</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Total Pembayaran</p>
+                                        <p class="font-bold text-green-600">Rp 8.500.000.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex justify-end space-x-3 pt-4 border-t">
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                <i class="fas fa-print mr-2"></i>Cetak Invoice
+                            </button>
+                            <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                                <i class="fas fa-check mr-2"></i>Konfirmasi
+                            </button>
+                            <button onclick="closeModal('detailModal')" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                                Tutup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

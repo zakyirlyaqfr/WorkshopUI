@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - DriveZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="flex h-screen">
+        <div class="w-64 bg-gray-900 text-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-red-500">DriveZone Admin</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="admin-dashboard.html" class="flex items-center px-6 py-3 bg-red-600 text-white">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="admin-artikel.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-newspaper mr-3"></i>
+                    Kelola Artikel
+                </a>
+                <a href="admin-produk.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-car mr-3"></i>
+                    Kelola Produk
+                </a>
+                <a href="admin-pengguna.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-users mr-3"></i>
+                    Kelola Pengguna
+                </a>
+                <a href="admin-transaksi.html" class="flex items-center px-6 py-3 hover:bg-gray-800">
+                    <i class="fas fa-credit-card mr-3"></i>
+                    Kelola Transaksi
+                </a>
+                <a href="index.html" class="flex items-center px-6 py-3 hover:bg-gray-800 mt-6 border-t border-gray-700">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Kembali ke Website
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <button class="flex items-center text-gray-700 hover:text-gray-900">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Admin" class="w-8 h-8 rounded-full mr-2">
+                                <span>Admin User</span>
+                                <i class="fas fa-chevron-down ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="fas fa-car text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Total Produk</h3>
+                                <p class="text-3xl font-bold text-blue-600">156</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-users text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Total Pengguna</h3>
+                                <p class="text-3xl font-bold text-green-600">2,847</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-credit-card text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Total Transaksi</h3>
+                                <p class="text-3xl font-bold text-yellow-600">1,234</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-red-100 text-red-600">
+                                <i class="fas fa-newspaper text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Total Artikel</h3>
+                                <p class="text-3xl font-bold text-red-600">89</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Recent Activity -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Sales Chart -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Penjualan Bulanan</h3>
+                        <div class="h-64">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Transaksi Terbaru</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Ferrari 488 GTB</p>
+                                    <p class="text-sm text-gray-600">John Doe</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-green-600">Rp 8.5M</p>
+                                    <p class="text-sm text-gray-600">2 jam lalu</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Lamborghini Huracán</p>
+                                    <p class="text-sm text-gray-600">Jane Smith</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-green-600">Rp 12.3M</p>
+                                    <p class="text-sm text-gray-600">5 jam lalu</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Porsche 911 Turbo</p>
+                                    <p class="text-sm text-gray-600">Mike Johnson</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-green-600">Rp 6.8M</p>
+                                    <p class="text-sm text-gray-600">1 hari lalu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Aksi Cepat</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <a href="admin-produk.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
+                            <div class="text-center">
+                                <i class="fas fa-plus-circle text-3xl text-blue-600 mb-2"></i>
+                                <p class="font-medium">Tambah Produk</p>
+                            </div>
+                        </a>
+                        <a href="admin-artikel.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
+                            <div class="text-center">
+                                <i class="fas fa-edit text-3xl text-green-600 mb-2"></i>
+                                <p class="font-medium">Tulis Artikel</p>
+                            </div>
+                        </a>
+                        <a href="admin-pengguna.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
+                            <div class="text-center">
+                                <i class="fas fa-user-plus text-3xl text-yellow-600 mb-2"></i>
+                                <p class="font-medium">Kelola Pengguna</p>
+                            </div>
+                        </a>
+                        <a href="admin-transaksi.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line text-3xl text-red-600 mb-2"></i>
+                                <p class="font-medium">Lihat Laporan</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Chart.js and Chart Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Penjualan (Juta Rp)',
+                    data: [5.2, 6.8, 7.5, 8.1, 9.3, 10.2, 11.5, 12.0, 10.8, 9.7, 8.4, 7.9],
+                    backgroundColor: 'rgba(37, 99, 235, 0.6)',
+                    borderColor: 'rgba(37, 99, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Penjualan (Juta Rp)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Bulan'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#1F2937'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1F2937',
+                        titleColor: '#ffffff',
+                        bodyColor: '#ffffff'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

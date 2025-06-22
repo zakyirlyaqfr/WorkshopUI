@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - DriveZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-black text-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-red-500">DriveZone</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8" id="navbar-menu">
+                    <a href="index.html" class="hover:text-red-500 transition-colors">Beranda</a>
+                    <a href="katalog.html" class="hover:text-red-500 transition-colors">Katalog</a>
+                    <a href="artikel.html" class="hover:text-red-500 transition-colors">Artikel</a>
+                    <a href="history.html" class="hover:text-red-500 transition-colors">Transaksi</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="keranjang.html" class="relative hover:text-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <a href="profile.html" class="text-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </a>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col items-center space-y-4 py-4">
+                    <a href="index.html" class="hover:text-red-500 transition-colors">Beranda</a>
+                    <a href="katalog.html" class="hover:text-red-500 transition-colors">Katalog</a>
+                    <a href="artikel.html" class="hover:text-red-500 transition-colors">Artikel</a>
+                    <a href="history.html" class="hover:text-red-500 transition-colors">Transaksi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Profile Sidebar -->
+            <div class="lg:col-span-1 bg-white rounded-lg shadow-sm">
+                <div class="p-6 border-b text-center">
+                    <img src="https://thumbs.dreamstime.com/b/photo-rich-happy-entrepreneur-guy-s-business-suit-de-photo-rich-happy-entrepreneur-guy-s-business-suit-115310958.jpg" alt="Profile" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="text-lg font-bold">John Doe</h3>
+                    <p class="text-gray-600">john.doe@email.com</p>
+                </div>
+                <nav class="p-4">
+                    <a href="#account" class="block py-2 px-4 text-red-500 font-medium profile-nav-item active">Akun</a>
+                    <a href="#notifications" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Notifikasi</a>
+                    <a href="#payment" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Pembayaran</a>
+                    <a href="#security" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Keamanan</a>
+                    <a href="history.html" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Riwayat Transaksi</a>
+                    <a href="wishlist.html" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Wishlist</a>
+                    <a href="admin-dashboard.html" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item">Admin</a>
+                    <a href="landingpage.html" class="block py-2 px-4 text-gray-600 hover:text-red-500 profile-nav-item logout">Keluar</a>
+                </nav>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-sm p-6">
+                <!-- Account Section -->
+                <div id="account" class="profile-section active">
+                    <h2 class="text-xl font-bold mb-6">Informasi Akun</h2>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Nama Depan</label>
+                                <input type="text" id="firstName" value="John" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Nama Belakang</label>
+                                <input type="text" id="lastName" value="Doe" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" value="john.doe@email.com" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                            <input type="tel" id="phone" value="+62 812-3456-7890" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Alamat</label>
+                            <textarea id="address" rows="3" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">Jl. Sudirman No. 123, Jakarta Pusat</textarea>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label for="city" class="block text-sm font-medium text-gray-700 mb-2">Kota</label>
+                                <input type="text" id="city" value="Jakarta" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label for="province" class="block text-sm font-medium text-gray-700 mb-2">Provinsi</label>
+                                <input type="text" id="province" value="DKI Jakarta" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label for="postalCode" class="block text-sm font-medium text-gray-700 mb-2">Kode Pos</label>
+                                <input type="text" id="postalCode" value="10110" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                        </div>
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-medium transition-colors">Simpan Perubahan</button>
+                    </form>
+                </div>
+
+                <!-- Notifications Section -->
+                <div id="notifications" class="profile-section hidden">
+                    <h2 class="text-xl font-bold mb-6">Pengaturan Notifikasi</h2>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-medium">Email Promosi</h4>
+                                <p class="text-sm text-gray-600">Terima email tentang penawaran dan promosi terbaru</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only">
+                                <span class="w-11 h-6 bg-gray-200 rounded-full"></span>
+                                <span class="w-5 h-5 bg-white rounded-full absolute left-1 top-0.5 transition-transform duration-200 checked:translate-x-5 checked:bg-red-500"></span>
+                            </label>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-medium">SMS Notifikasi</h4>
+                                <p class="text-sm text-gray-600">Terima SMS untuk update transaksi dan pengingat</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only">
+                                <span class="w-11 h-6 bg-gray-200 rounded-full"></span>
+                                <span class="w-5 h-5 bg-white rounded-full absolute left-1 top-0.5 transition-transform duration-200 checked:translate-x-5 checked:bg-red-500"></span>
+                            </label>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-medium">Push Notification</h4>
+                                <p class="text-sm text-gray-600">Terima notifikasi push di browser</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only">
+                                <span class="w-11 h-6 bg-gray-200 rounded-full"></span>
+                                <span class="w-5 h-5 bg-white rounded-full absolute left-1 top-0.5 transition-transform duration-200 checked:translate-x-5 checked:bg-red-500"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold mb-4">Riwayat Notifikasi</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                            <div class="text-2xl">📧</div>
+                            <div class="flex-grow">
+                                <h4 class="font-medium">Promo Akhir Tahun</h4>
+                                <p class="text-sm text-gray-600">Dapatkan diskon hingga 50% untuk semua mobil</p>
+                                <span class="text-xs text-gray-500">2 jam yang lalu</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                            <div class="text-2xl">✅</div>
+                            <div class="flex-grow">
+                                <h4 class="font-medium">Pembayaran Berhasil</h4>
+                                <p class="text-sm text-gray-600">Pembayaran untuk Honda Civic telah berhasil diproses</p>
+                                <span class="text-xs text-gray-500">1 hari yang lalu</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                            <div class="text-2xl">🚗</div>
+                            <div class="flex-grow">
+                                <h4 class="font-medium">Mobil Baru Tersedia</h4>
+                                <p class="text-sm text-gray-600">Toyota Camry 2024 sudah tersedia di showroom</p>
+                                <span class="text-xs text-gray-500">3 hari yang lalu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Section -->
+                <div id="payment" class="profile-section hidden">
+                    <h2 class="text-xl font-bold mb-6">Metode Pembayaran</h2>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex gap-3 bg-gray-50 p-4 rounded-lg items-center">
+                            <div class="text-2xl">💳</div>
+                            <div class="flex-grow">
+                                <h4 class="font-medium">Kartu Kredit</h4>
+                                <p class="text-sm text-gray-600">**** **** **** 1234</p>
+                                <span class="text-xs text-gray-500">Visa</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="border border-gray-300 hover:border-red-500 text-gray-700 px-4 py-2 rounded-md font-medium transition-colors">Edit</button>
+                                <button class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md font-medium transition-colors">Hapus</button>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 bg-gray-50 p-4 rounded-lg items-center">
+                            <div class="text-2xl">🏦</div>
+                            <div class="flex-grow">
+                                <h4 class="font-medium">Transfer Bank</h4>
+                                <p class="text-sm text-gray-600">Bank BCA - 1234567890</p>
+                                <span class="text-xs text-gray-500">BCA</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="border border-gray-300 hover:border-red-500 text-gray-700 px-4 py-2 rounded-md font-medium transition-colors">Edit</button>
+                                <button class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md font-medium transition-colors">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-medium transition-colors">Tambah Metode Pembayaran</button>
+                </div>
+
+                <!-- Security Section -->
+                <div id="security" class="profile-section hidden">
+                    <h2 class="text-xl font-bold mb-6">Keamanan</h2>
+                    <div class="space-y-6">
+                        <!-- Change Password -->
+                        <div>
+                            <h4 class="font-medium mb-4">Ubah Password</h4>
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="currentPassword" class="block text-sm font-medium text-gray-700 mb-2">Password Saat Ini</label>
+                                    <input type="password" id="currentPassword" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                </div>
+                                <div>
+                                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-2">Password Baru</label>
+                                    <input type="password" id="newPassword" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                </div>
+                                <div>
+                                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Konfirmasi Password Baru</label>
+                                    <input type="password" id="confirmPassword" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                </div>
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-medium transition-colors">Ubah Password</button>
+                            </form>
+                        </div>
+
+                        <!-- Two-Factor Authentication -->
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-medium">Autentikasi Dua Faktor</h4>
+                                <p class="text-sm text-gray-600">Tingkatkan keamanan akun dengan autentikasi dua faktor</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only">
+                                <span class="w-11 h-6 bg-gray-200 rounded-full"></span>
+                                <span class="w-5 h-5 bg-white rounded-full absolute left-1 top-0.5 transition-transform duration-200 checked:translate-x-5 checked:bg-red-500"></span>
+                            </label>
+                        </div>
+
+                        <!-- Login History -->
+                        <div>
+                            <h4 class="font-medium mb-4">Riwayat Login</h4>
+                            <div class="space-y-4">
+                                <div class="flex gap-3 bg-gray-50 p-4 rounded-lg items-center">
+                                    <div class="flex-grow">
+                                        <p class="font-medium">Chrome di Windows</p>
+                                        <p class="text-sm text-gray-600">Jakarta, Indonesia</p>
+                                        <span class="text-xs text-gray-500">Hari ini, 14:30</span>
+                                    </div>
+                                    <span class="text-green-600 font-medium">Saat ini</span>
+                                </div>
+                                <div class="flex gap-3 bg-gray-50 p-4 rounded-lg items-center">
+                                    <div class="flex-grow">
+                                        <p class="font-medium">Safari di iPhone</p>
+                                        <p class="text-sm text-gray-600">Jakarta, Indonesia</p>
+                                        <span class="text-xs text-gray-500">Kemarin, 09:15</span>
+                                    </div>
+                                    <button class="border border-gray-300 hover:border-red-500 text-gray-700 px-4 py-2 rounded-md font-medium transition-colors">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DriveZone</h3>
+                    <p class="text-gray-400 mb-4">Dealer mobil terpercaya dengan koleksi lengkap dan pelayanan terbaik.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Layanan</h4>
+                    <ul class="space-y-2">
+                        <li><a href="katalog.html" class="text-gray-400 hover:text-white">Katalog Mobil</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Test Drive</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pembiayaan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Kontak</h4>
+                    <address class="text-gray-400 not-italic">
+                        <p>📞 (021) 123-4567</p>
+                        <p>📧 info@drivezone.com</p>
+                        <p>📍 Jl. Sudirman No. 123, Jakarta</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 DriveZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Profile sidebar navigation
+        document.querySelectorAll('.profile-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items and sections
+                    document.querySelectorAll('.profile-nav-item').forEach(nav => nav.classList.remove('active', 'text-red-500'));
+                    document.querySelectorAll('.profile-section').forEach(section => section.classList.add('hidden'));
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active', 'text-red-500');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

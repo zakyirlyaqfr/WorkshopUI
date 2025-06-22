@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - DriveZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Progress Steps -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-center">
+                <div class="flex items-center">
+                    <div class="flex items-center text-green-600">
+                        <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-medium">✓</div>
+                        <span class="ml-2 font-medium">Keranjang</span>
+                    </div>
+                    <div class="w-16 h-px bg-green-600 mx-4"></div>
+                    <div class="flex items-center text-red-600">
+                        <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-sm font-medium">2</div>
+                        <span class="ml-2 font-medium">Pembayaran</span>
+                    </div>
+                    <div class="w-16 h-px bg-gray-300 mx-4"></div>
+                    <div class="flex items-center text-gray-400">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-medium">3</div>
+                        <span class="ml-2">Konfirmasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Payment Form -->
+            <div class="lg:col-span-2">
+                <!-- Delivery Information -->
+                <div class="bg-white rounded-lg shadow-sm mb-6">
+                    <div class="p-6 border-b">
+                        <h2 class="text-xl font-bold">Informasi Pengiriman</h2>
+                    </div>
+                    <div class="p-6">
+                        <form id="deliveryForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nama Lengkap</label>
+                                    <input type="text" name="fullName" value="John Doe" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nomor Telepon</label>
+                                    <input type="tel" name="phone" value="+62 812-3456-7890" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Alamat Lengkap</label>
+                                <textarea name="address" rows="3" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Masukkan alamat lengkap untuk pengiriman" required>Jl. Sudirman No. 123, Jakarta Selatan, DKI Jakarta 12190</textarea>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Kota</label>
+                                    <select name="city" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                        <option>Jakarta</option>
+                                        <option>Bandung</option>
+                                        <option>Surabaya</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Provinsi</label>
+                                    <select name="province" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                        <option>DKI Jakarta</option>
+                                        <option>Jawa Barat</option>
+                                        <option>Jawa Timur</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Kode Pos</label>
+                                    <input type="text" name="postalCode" value="12190" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="bg-white rounded-lg shadow-sm mb-6">
+                    <div class="p-6 border-b">
+                        <h2 class="text-xl font-bold">Metode Pembayaran</h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="payment_method" value="bank_transfer" class="mr-3" checked>
+                                    <div class="flex-grow">
+                                        <div class="font-medium">Transfer Bank</div>
+                                        <div class="text-sm text-gray-600">BCA, Mandiri, BNI, BRI</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <img src="https://iconlogovector.com/uploads/images/2024/03/lg-65e77f1a0d39b-BCA-Mobile.webp" alt="BCA" class="h-6">
+                                        <img src="https://lh3.googleusercontent.com/0JIpPmHxajzRSFE07MUW1CnbTlNr_AvIu_8b3BYPRKHZadMFle0KtguBZ0uHk7xPZeAd=w300" alt="BNI" class="h-6">
+                                        <img src="https://images.seeklogo.com/logo-png/45/1/brimo-logo-png_seeklogo-459549.png" alt="BRI" class="h-6">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="payment_method" value="credit_card" class="mr-3">
+                                    <div class="flex-grow">
+                                        <div class="font-medium">Kartu Kredit</div>
+                                        <div class="text-sm text-gray-600">Visa, Mastercard, JCB</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png" alt="Visa" class="h-6">
+                                        <img src="https://th.bing.com/th/id/OIP.0dMViQtRP2BUSZ2aMb3q1QHaEb?w=1000&h=599&rs=1&pid=ImgDetMain" alt="Mastercard" class="h-6">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="payment_method" value="financing" class="mr-3">
+                                    <div class="flex-grow">
+                                        <div class="font-medium">Pembiayaan</div>
+                                        <div class="text-sm text-gray-600">Cicilan 12-60 bulan</div>
+                                    </div>
+                                    <div class="text-sm text-red-600 font-medium">Bunga 0%</div>
+                                </label>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="payment_method" value="digital_wallet" class="mr-3">
+                                    <div class="flex-grow">
+                                        <div class="font-medium">Dompet Digital</div>
+                                        <div class="text-sm text-gray-600">OVO, GoPay, DANA</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <img src="https://th.bing.com/th/id/OIP.AGGGN-TZ69qztZJf9hXu4wHaE4?rs=1&pid=ImgDetMain" alt="OVO" class="h-6">
+                                        <img src="https://th.bing.com/th/id/OIP.qbk7ot2JMAIvl7zA-C8PYQHaHa?rs=1&pid=ImgDetMain" alt="GoPay" class="h-6">
+                                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhFGUE707IY8kQVOwZL99RIFJISIL2YbPOWiHuiFhx2dTNRArgrYhsxmvffkr06UuMmW_bH_jvz5Fwmu_2ulgwM3LZDNrk5ffAMdh2Idupas0uEpaasSyzx1vqelkojB0xM8e-3nsGVLdRGZniVPwjOlnwGY1g8pPl7SY6gLq0lMDft2Wv8X9RiVspg=s16000" alt="DANA" class="h-6">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Services -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <div class="p-6 border-b">
+                        <h2 class="text-xl font-bold">Layanan Tambahan</h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="additional_service" value="insurance" class="mr-3" checked>
+                                <div class="flex-grow">
+                                    <div class="font-medium">Asuransi Comprehensive</div>
+                                    <div class="text-sm text-gray-600">Perlindungan menyeluruh untuk kendaraan Anda</div>
+                                </div>
+                                <div class="text-red-600 font-medium">Rp 225.000.000</div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="additional_service" value="warranty" class="mr-3">
+                                <div class="flex-grow">
+                                    <div class="font-medium">Extended Warranty</div>
+                                    <div class="text-sm text-gray-600">Perpanjangan garansi hingga 5 tahun</div>
+                                </div>
+                                <div class="text-red-600 font-medium">Rp 150.000.000</div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="additional_service" value="detailing" class="mr-3">
+                                <div class="flex-grow">
+                                    <div class="font-medium">Premium Detailing</div>
+                                    <div class="text-sm text-gray-600">Perawatan premium sebelum pengiriman</div>
+                                </div>
+                                <div class="text-red-600 font-medium">Rp 25.000.000</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+                    <h2 class="text-xl font-bold mb-6">Ringkasan Pesanan</h2>
+                    <div id="orderItems" class="space-y-4 mb-6"></div>
+                    <div id="priceBreakdown" class="space-y-3 mb-6 border-t pt-4">
+                        <div class="flex justify-between">
+                            <span>Subtotal (<span id="itemCount">0</span> item)</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Biaya Admin</span>
+                            <span id="adminFee">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Asuransi</span>
+                            <span id="insuranceFee">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Pajak (10%)</span>
+                            <span id="tax">Rp 0</span>
+                        </div>
+                        <div class="border-t pt-3">
+                            <div class="flex justify-between font-bold text-lg">
+                                <span>Total</span>
+                                <span class="text-red-500" id="total">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2">Kode Promo</label>
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="Masukkan kode promo" class="flex-grow px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <button class="px-4 py-2 bg-gray-100 border rounded-md hover:bg-gray-200">Terapkan</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="flex items-start">
+                            <input type="checkbox" id="terms" class="mt-1 mr-3" required>
+                            <span class="text-sm text-gray-600">Saya setuju dengan <a href="#" class="text-red-500 hover:underline">syarat dan ketentuan</a> serta <a href="#" class="text-red-500 hover:underline">kebijakan privasi</a></span>
+                        </label>
+                    </div>
+                    <button id="payNow" class="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-medium transition-colors mb-3">Bayar Sekarang</button>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>Transaksi aman dan terpercaya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-gray-400 py-4">
+        <p>© 2024 DriveZone. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderItemsContainer = document.getElementById('orderItems');
+            const itemCountElement = document.getElementById('itemCount');
+            const subtotalElement = document.getElementById('subtotal');
+            const adminFeeElement = document.getElementById('adminFee');
+            const insuranceFeeElement = document.getElementById('insuranceFee');
+            const taxElement = document.getElementById('tax');
+            const totalElement = document.getElementById('total');
+            const cartCountElement = document.querySelector('.cart-count');
+            const payNowButton = document.getElementById('payNow');
+            const deliveryForm = document.getElementById('deliveryForm');
+            const termsCheckbox = document.getElementById('terms');
+
+            // Sample order data if localStorage is empty
+            const defaultOrder = {
+                items: [
+                    {
+                        name: 'Ferrari 488 GTB',
+                        color: 'Rosso Corsa Red',
+                        qty: 1,
+                        price: 8500000000,
+                        img: 'https://spots.ag/2025/03/08/ferrari-488-gtb-96e5d-c275808032025011405_1.jpg'
+                    },
+                    {
+                        name: 'Porsche 911 Turbo S',
+                        color: 'Guards Red',
+                        qty: 1,
+                        price: 4800000000,
+                        img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim8j_72WSrYrOzFbcaJsO75ERTCgtDVB9NWov5AlOWbkS-tFD40Ru7H3nokjeBn8m772us1_7nluhyphenhyphenzo2pcBr8A_ecc-McuKHGbbuQWPfhZ6VDYvk5NNejADLsjri2m8GdrneBASnNRAJo/s1100/2021_porsche_911.jpg'
+                    },
+                    {
+                        name: 'Lamborghini Huracan',
+                        color: 'Arancio Borealis',
+                        qty: 1,
+                        price: 9200000000,
+                        img: 'https://www.topgear.com/sites/default/files/cars-car/carousel/2019/01/tom_5656.jpg'
+                    }
+                ],
+                subtotal: 22500000000,
+                adminFee: 50000000,
+                insuranceFee: 225000000
+            };
+
+            // Get order from localStorage or use default
+            let order = JSON.parse(localStorage.getItem('order')) || defaultOrder;
+            let items = order.items || [];
+
+            function renderOrderItems() {
+                orderItemsContainer.innerHTML = '';
+                items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'flex gap-3';
+                    itemDiv.innerHTML = `
+                        <img src="${item.img || 'https://via.placeholder.com/64x48?text=Image+Not+Found'}" alt="${item.name}" class="w-16 h-12 object-cover rounded">
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${item.name}</h4>
+                            <p class="text-sm text-gray-600">${item.color}</p>
+                            <p class="text-sm font-medium">Qty: ${item.qty}</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-medium">Rp ${(item.price * item.qty).toLocaleString('id-ID')}</div>
+                        </div>
+                    `;
+                    orderItemsContainer.appendChild(itemDiv);
+                });
+
+                itemCountElement.textContent = items.length;
+                subtotalElement.textContent = `Rp ${order.subtotal.toLocaleString('id-ID')}`;
+                adminFeeElement.textContent = `Rp ${order.adminFee.toLocaleString('id-ID')}`;
+                insuranceFeeElement.textContent = `Rp ${order.insuranceFee.toLocaleString('id-ID')}`;
+                const tax = order.subtotal * 0.1;
+                taxElement.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+                const total = order.subtotal + order.adminFee + order.insuranceFee + tax;
+                totalElement.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+                if (cartCountElement) cartCountElement.textContent = items.length;
+            }
+
+            payNowButton.addEventListener('click', () => {
+                if (!termsCheckbox.checked) {
+                    alert('Harap setuju dengan syarat dan ketentuan.');
+                    return;
+                }
+
+                const deliveryInfo = {
+                    fullName: deliveryForm.fullName.value,
+                    phone: deliveryForm.phone.value,
+                    address: deliveryForm.address.value,
+                    city: deliveryForm.city.value,
+                    province: deliveryForm.province.value,
+                    postalCode: deliveryForm.postalCode.value
+                };
+
+                const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+                const additionalServices = Array.from(document.querySelectorAll('input[name="additional_service"]:checked')).map(el => el.value);
+
+                const finalOrder = {
+                    ...order,
+                    deliveryInfo,
+                    paymentMethod,
+                    additionalServices,
+                    tax: order.subtotal * 0.1,
+                    total: order.subtotal + order.adminFee + order.insuranceFee + (order.subtotal * 0.1),
+                    orderNumber: `DZ-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`,
+                    orderDate: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
+                };
+
+                localStorage.setItem('finalOrder', JSON.stringify(finalOrder));
+                alert('Pembayaran berhasil! Anda akan diarahkan ke halaman utama.');
+                window.location.href = 'index.html';
+            });
+
+            renderOrderItems();
+        });
+    </script>
+</body>
+</html>
